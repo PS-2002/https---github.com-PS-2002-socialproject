@@ -1,0 +1,8 @@
+{% extends 'users/base.html' %}
+{% block body %}
+<div class="px-10 py-10 text-center m-10 mb-2">
+    <h1><b>Invalid Credentials!</b></h1>
+    <p class="px-10 py-10"><a class="text-indigo-700" href="{% url 'login' %}"><b>Login Again</b></a></p>
+</div>
+
+{% endblock %}

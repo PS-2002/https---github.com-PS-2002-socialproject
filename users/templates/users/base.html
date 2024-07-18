@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+<body>
+    <nav class="shadow-lg">
+       <div class="px-4 mx-auto">
+        <div class="flex justify-between">
+            <!--Website logo-->
+            <div>
+                <a class="flex" href="">
+                    <img class="h-9 w-8 mr-2" src="{% static 'users/images/317738_instagram_photography_photos_icon.png' %}" alt="">
+                    <span class="font-bold text-lg text-gray-700"><b>PhotoGram</b></span>
+                </a>
+            </div>
+            <!--Website items-->
+            <div class="space-x-1">
+                {% if request.user.is_authenticated %}
+                <a class="py-8 px-2 text-gray-700 font-semibold" href="{% url 'logout' %}"><b>logout</b></a>
+                <a class="py-8 px-2 text-gray-700 font-semibold" href="{% url 'feed' %}"><b>🏡</b></a>
+                {% else %}
+                <a class="py-8 px-2 text-gray-700 font-semibold" href="{% url 'login' %}">Login</a>
+                {% endif %}
+
+            </div>
+        </div>
+       </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
